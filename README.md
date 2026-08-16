@@ -151,7 +151,7 @@ Nothing forces you into one. If your programme mandates a different chapter orde
 - [Claude Code](https://code.claude.com)
 - Optional: [Playwright MCP](https://github.com/microsoft/playwright-mcp) for subscription databases — `claude mcp add playwright npx @playwright/mcp@latest`
 - Optional: free API keys from [OpenAlex](https://openalex.org) and [Semantic Scholar](https://www.semanticscholar.org/product/api)
-- Optional, for `/ingest`: `pip install anthropic pypdfium2 pillow` and an `ANTHROPIC_API_KEY`
+- Optional, for `/ingest`: `pip install pypdfium2 pillow` plus one provider SDK (`anthropic`, `openai`, or `google-genai`) and the matching API key — it uses whichever you already have
 
 ## A note on academic integrity
 
