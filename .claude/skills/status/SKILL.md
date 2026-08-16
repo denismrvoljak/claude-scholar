@@ -10,6 +10,8 @@ allowed-tools: Read, Glob, Grep, Bash
 
 1. **Measure each section** in `sections/`: `wc -m` for characters and `wc -w` for words, and classify the file as `empty`, `outline`, `drafted`, or `reviewed` by reading it. A file of headings with no prose is an outline, not a draft.
 
+   These counts are a planning estimate, not the submitted figure. `wc -m` includes markdown syntax that will not survive compiling, and excludes the fixed per-image allowance most institutions charge for a pasted figure. Say so when the total gets close to the limit, and point at `docs/COMPILING.md` — the authoritative count comes from the compiled document, and it needs checking well before the deadline rather than on submission day.
+
 2. **Read the budgets** from `.claude/rules/structure.md` and the hard limit from `docs/requirements.md`.
 
 3. **Build the dashboard.**
@@ -23,7 +25,7 @@ allowed-tools: Read, Glob, Grep, Bash
 | **Total** | | | | |
 
 Figures: N at <cost> each = <total> chars against the limit
-Remaining budget: <chars>
+Remaining budget: <chars>   (estimate — the real count comes from the compiled document)
 
 ## Material
 Theoretical sources: N · Practical sources: N · Research logs: N · Verified reference list: yes/no

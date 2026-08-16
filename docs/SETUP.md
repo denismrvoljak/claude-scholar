@@ -74,6 +74,14 @@ And, if the work is defended orally, before you think you need it:
 /teach examine                 # adversarial mock, once there is a full draft
 ```
 
+## Optional: read the project in Obsidian
+
+```
+Obsidian → Open folder as vault → pick the project root
+```
+
+No import, no conversion, no lock-in — the markdown files stay exactly as they are and Claude Code keeps editing them normally. What you get is search across every section and source summary at once, an outline view for long chapters, and rendered LaTeX (which is what makes `/ingest` output readable). `.obsidian/` is already gitignored.
+
 ## Maintenance habits
 
 Three things, and the whole setup rests on them:

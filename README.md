@@ -89,7 +89,7 @@ These are generic until `/onboard` rewrites them for your project. They are mean
 
 **Citations are verified, not trusted.** Models invent plausible references. `/research` requires a DOI or a resolvable URL before a source is recommended, and `/verify-sources` re-checks a finished reference list against OpenAlex and Semantic Scholar and reports what it could not confirm.
 
-**Sections are files.** `paper.md` is a manifest that lists the section files in order. Chapters stay independently editable and reviewable, and character counting is per file.
+**Sections are files.** `paper.md` is a manifest that lists the section files in order. Chapters stay independently editable and reviewable, and character counting is per file. Open the folder in [Obsidian](https://obsidian.md) and the whole project becomes searchable and navigable, with LaTeX rendered — useful once there are eight chapters and sixty source summaries. Compiling to Word is a manual pass at the end, on purpose: see [docs/COMPILING.md](docs/COMPILING.md) for why, and for what the character count in `/status` does and does not tell you.
 
 **Your source material has to be readable.** Course slides, papers, and scanned handouts arrive as PDFs, and the ones that matter most are the ones text extraction handles worst — a slide deck exported from PowerPoint extracts as scrambled fragments, and a scan extracts as nothing at all. `/ingest` renders each page and transcribes it with a vision model instead: equations come back as LaTeX, tables as tables, figures as descriptions of what they show. The output is greppable, diffable, citable by page, and small enough to hand to an agent whole. It caches per page, so a six-thousand-page backlog survives an interrupted run.
 
@@ -149,6 +149,7 @@ Nothing forces you into one. If your programme mandates a different chapter orde
 ## Requirements
 
 - [Claude Code](https://code.claude.com)
+- Recommended: [Obsidian](https://obsidian.md) for reading and searching the project — open the folder as a vault, no import step, files stay as they are
 - Optional: [Playwright MCP](https://github.com/microsoft/playwright-mcp) for subscription databases — `claude mcp add playwright npx @playwright/mcp@latest`
 - Optional: free API keys from [OpenAlex](https://openalex.org) and [Semantic Scholar](https://www.semanticscholar.org/product/api)
 - Optional, for `/ingest`: `pip install pypdfium2 pillow` plus one provider SDK (`anthropic`, `openai`, or `google-genai`) and the matching API key — it uses whichever you already have
