@@ -1,0 +1,23 @@
+{
+  "name": "claude-scholar",
+  "owner": {
+    "name": "Denis Mrvoljak",
+    "url": "https://github.com/denismrvoljak"
+  },
+  "description": "Academic writing workspace for Claude Code.",
+  "plugins": [
+    {
+      "name": "claude-scholar",
+      "source": "./",
+      "description": "Skills and agents for writing a thesis, internship report, literature review, or course paper: onboarding, planning, drafting, source verification, and review.",
+      "version": "0.1.0",
+      "category": "writing",
+      "tags": ["academic", "thesis", "research", "citations"],
+      "author": {
+        "name": "Denis Mrvoljak"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/denismrvoljak/claude-scholar"
+    }
+  ]
+}

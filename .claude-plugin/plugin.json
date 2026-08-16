@@ -1,0 +1,23 @@
+{
+  "name": "claude-scholar",
+  "displayName": "Claude Scholar",
+  "version": "0.1.0",
+  "description": "A workspace for academic writing: theses, internship reports, literature reviews, and course papers. Interactive onboarding, verified citations, style rules, and character budgets.",
+  "author": {
+    "name": "Denis Mrvoljak",
+    "url": "https://github.com/denismrvoljak"
+  },
+  "homepage": "https://github.com/denismrvoljak/claude-scholar",
+  "repository": "https://github.com/denismrvoljak/claude-scholar",
+  "license": "MIT",
+  "keywords": [
+    "academic",
+    "writing",
+    "thesis",
+    "research",
+    "citations",
+    "literature-review"
+  ],
+  "skills": ["./.claude/skills/"],
+  "agents": ["./.claude/agents/"]
+}

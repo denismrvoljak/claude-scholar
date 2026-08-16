@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:api.openalex.org)",
+      "WebFetch(domain:api.semanticscholar.org)",
+      "WebFetch(domain:api.crossref.org)",
+      "WebFetch(domain:api.unpaywall.org)",
+      "WebFetch(domain:arxiv.org)",
+      "WebFetch(domain:doi.org)",
+      "WebFetch(domain:scholar.google.com)",
+      "Bash(wc:*)",
+      "Bash(ls:*)",
+      "Bash(grep:*)",
+      "Bash(rg:*)",
+      "Bash(find:*)"
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+# Secrets
+.env
+
+# OS / editor
+.DS_Store
+.obsidian/
+.vscode/
+.idea/
+
+# Claude Code local state
+.claude/settings.local.json
+.playwright-mcp/
+
+# Your writing output — track the markdown, not the binaries
+*.docx
+*.pdf
+!docs/guidelines/*.pdf
+!reference_material/*.pdf
+
+# Large or licensed source material
+resources/pdfs/
+resources/**/data/
+
+# Build artefacts
+build/
+.thesis_build_images/
