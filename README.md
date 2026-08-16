@@ -56,6 +56,7 @@ Then run `/claude-scholar:onboard` in your project directory. It scaffolds the m
 | `/figure <description>` | Builds a self-contained HTML figure in your project's visual style. |
 | `/status` | Progress dashboard: character counts per section against budget, resources saved, plans written. |
 | `/facts` | Audits the document against the facts file and flags every number, date, or term that drifted. |
+| `/teach` | Teaches you your own document to the depth an oral defence needs: concept inventory, lessons built on retrieval practice, and adversarial mock examination. |
 
 ### Agents
 
@@ -89,6 +90,8 @@ These are generic until `/onboard` rewrites them for your project. They are mean
 
 **Sections are files.** `paper.md` is a manifest that lists the section files in order. Chapters stay independently editable and reviewable, and character counting is per file.
 
+**Submitting is not the end.** Most academic work is defended out loud, with no notes and usually no AI in the room. `/teach` treats that as the real deadline: it inventories everything an examiner could ask about, tests what you can actually produce unaided rather than what you think you know, teaches into the gaps, and then turns adversarial and examines you on your own weakest claims. A document you cannot explain without the tool is a problem worth finding in week ten rather than in the room.
+
 ---
 
 ## Research database access
@@ -121,6 +124,7 @@ my-thesis/
 │   ├── theoretical/       # academic paper summaries
 │   └── practical/         # domain, company, or dataset references
 ├── reference_material/    # sample reports, prior drafts, supervisor feedback
+├── teach/                 # exam preparation: inventory, lessons, question bank, records
 ├── figures/               # self-contained HTML figures
 ├── appendices/
 ├── paper.md               # section manifest, in order

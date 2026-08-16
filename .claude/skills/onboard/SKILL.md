@@ -172,4 +172,6 @@ Close with a short, concrete first move. Not a menu of possibilities: the actual
 
 Mention that `.claude/rules/` is theirs to edit by hand, and that the single habit that makes this setup pay off is putting every piece of feedback into the rules or the facts file the day it arrives.
 
+If the work ends in an oral defence, say now that `/teach` exists for it and is worth starting before the document is finished rather than after. Make sure the exam format, duration, examiners, and any rule about notes or AI in the room are recorded in `CLAUDE.md`, since that is what `/teach` builds its mission from.
+
 Do not run a second onboarding later. If the project changes shape, edit the rules directly or ask for a targeted update.

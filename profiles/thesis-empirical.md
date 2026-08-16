@@ -42,3 +42,4 @@ The literature review that summarises papers one at a time without ever synthesi
 - Case company or institution — is the material confidential, and does it need anonymising?
 - Was any of the analysis done before the writing started, and where does it live?
 - Has ethical approval or a data agreement been needed, and is it in place?
+- Is there an oral defence? Its format, and whether notes or AI are permitted in the room.

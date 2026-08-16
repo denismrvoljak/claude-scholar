@@ -64,6 +64,7 @@ Full requirements, with a source for each line: `docs/requirements.md`.
 | `/figure <desc>` | Build a figure |
 | `/facts` | Audit or update the source of truth |
 | `/status` | Progress against budget |
+| `/teach` | Learn the work to defence depth; mock examination |
 
 ## Working agreement
 

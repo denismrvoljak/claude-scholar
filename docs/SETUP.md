@@ -67,6 +67,13 @@ Fifteen to twenty minutes of questions, then it writes your `CLAUDE.md`, your ru
 /status                        # where the budget stands
 ```
 
+And, if the work is defended orally, before you think you need it:
+
+```
+/teach                         # inventory what you will be asked, and test what you can actually say
+/teach examine                 # adversarial mock, once there is a full draft
+```
+
 ## Maintenance habits
 
 Three things, and the whole setup rests on them:
