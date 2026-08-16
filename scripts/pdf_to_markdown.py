@@ -128,6 +128,8 @@ def detect_provider() -> str | None:
 def make_client(provider: str):
     """Import and construct only the SDK actually being used."""
     spec = PROVIDERS[provider]
+    if not any(os.getenv(var) for var in spec["env"]):
+        sys.exit(f"Provider '{provider}' needs one of: {', '.join(spec['env'])}")
     try:
         if provider == "anthropic":
             import anthropic

@@ -27,6 +27,8 @@ The approach comes from [a script by kocieusz](https://gist.github.com/kocieusz/
 
 If several are set, Anthropic wins; `--provider` forces one. If none is set, say so before rendering anything rather than after.
 
+All three paths are checked by `scripts/test_providers.py`, which points each SDK at a local mock endpoint and verifies the image reaches the wire and the response parses back. It costs nothing and needs no key. Run it if a provider starts failing after an SDK upgrade — it isolates a broken call shape from a rejected model ID in seconds.
+
 **Set the model explicitly if the default is rejected.** Every provider's model list moves, and the defaults in the script go stale. `--model <id>` overrides, and a model-not-found error means the default has been superseded rather than that anything is broken. Only the Anthropic price table is maintained in the script; for the others, `--price-in` and `--price-out` produce an estimate from the provider's current published rates.
 
 **Ask what the documents are**, unless it is obvious from the filenames. Slides and papers want different handling, and it changes the output:

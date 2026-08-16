@@ -128,7 +128,7 @@ my-thesis/
 │   └── practical/         # domain, company, or dataset references
 ├── reference_material/    # sample reports, prior drafts, supervisor feedback
 ├── teach/                 # exam preparation: inventory, lessons, question bank, records
-├── scripts/               # pdf_to_markdown.py — the /ingest converter
+├── scripts/               # pdf_to_markdown.py — the /ingest converter, + its tests
 ├── figures/               # self-contained HTML figures
 ├── appendices/
 ├── paper.md               # section manifest, in order
