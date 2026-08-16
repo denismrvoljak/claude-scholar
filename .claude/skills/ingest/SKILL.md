@@ -11,13 +11,23 @@ Academic work arrives as PDFs, and the ones that matter most are the ones ordina
 
 This converts them by rendering each page to an image and transcribing it with a vision model. Equations come back as LaTeX, tables as Markdown tables, and figures as descriptions of what they show. The result is a file you can read in an editor, grep, diff, cite by page, and hand to an agent in full.
 
-The approach comes from [a script by Kacper Kocieszewski](https://gist.github.com/kocieusz/85e3cfcf623f4cfe02a7a485c0307d3c), written to convert 75+ PDFs and about 6,000 pages of lecture material into an LLM-readable knowledge base.
+The approach comes from [a script by kocieusz](https://gist.github.com/kocieusz/85e3cfcf623f4cfe02a7a485c0307d3c), written to convert 75+ PDFs and about 6,000 pages of lecture material into an LLM-readable knowledge base.
 
 ## Before running anything
 
-**Check the dependencies.** `pip install anthropic pypdfium2 pillow`. The script says which one is missing if any are.
+**Check the dependencies.** `pip install pypdfium2 pillow` always, plus the SDK for whichever provider is being used. The script names the missing one if any.
 
-**Check for credentials.** The script needs `ANTHROPIC_API_KEY` in the environment, or an `ant auth login` profile. If neither is present, say so before rendering anything rather than after.
+**Check for credentials.** The script works with whichever API key the author already has and picks it up automatically:
+
+| Key in the environment | Provider | SDK |
+|------------------------|----------|-----|
+| `ANTHROPIC_API_KEY` | `anthropic` | `pip install anthropic` |
+| `OPENAI_API_KEY` | `openai` | `pip install openai` |
+| `GEMINI_API_KEY` or `GOOGLE_API_KEY` | `gemini` | `pip install google-genai` |
+
+If several are set, Anthropic wins; `--provider` forces one. If none is set, say so before rendering anything rather than after.
+
+**Set the model explicitly if the default is rejected.** Every provider's model list moves, and the defaults in the script go stale. `--model <id>` overrides, and a model-not-found error means the default has been superseded rather than that anything is broken. Only the Anthropic price table is maintained in the script; for the others, `--price-in` and `--price-out` produce an estimate from the provider's current published rates.
 
 **Ask what the documents are**, unless it is obvious from the filenames. Slides and papers want different handling, and it changes the output:
 
@@ -34,8 +44,8 @@ python scripts/pdf_to_markdown.py <path> --dry-run
 
 If the total is more than a few dollars, present the options rather than picking for them:
 
-- **A cheaper model** (`--model claude-sonnet-5`, or `claude-haiku-4-5` for clean, text-heavy scans). Quality drops on dense equations and complex figures — for a maths-heavy lecture deck the saving is usually false economy, for clean prose it is not.
-- **The Batches API** (`--batch`) — half price, and turnaround up to 24 hours. For a large backlog being converted once, this is almost always the right call.
+- **A cheaper model.** Every provider has a small fast model at a fraction of the flagship's price. Quality drops on dense equations and complex figures — for a maths-heavy lecture deck the saving is usually false economy, for clean prose it is not.
+- **Batch mode** (`--batch`) — half price, turnaround up to 24 hours. Implemented for Anthropic. For a large backlog being converted once, it is almost always the right call.
 - **A subset** — convert the material actually needed now, not the whole folder.
 
 ## Running it
@@ -49,6 +59,9 @@ python scripts/pdf_to_markdown.py ~/Downloads/course/ --out resources/practical/
 
 # A large backlog, at half price
 python scripts/pdf_to_markdown.py ~/Downloads/course/ --out resources/practical/ --batch
+
+# A different provider or model
+python scripts/pdf_to_markdown.py scan.pdf --provider openai --model <model-id>
 ```
 
 Useful flags: `--concurrency` (parallel pages, default 4), `--scale` and `--max-edge` (render resolution — raise for dense small print, lower to cut cost), `--label Slide`, `--no-text-layer`, `--keep-cache`.

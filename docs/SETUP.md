@@ -89,9 +89,12 @@ Three things, and the whole setup rests on them:
 If your source material is PDFs — lecture slides, papers, scanned handouts — `/ingest` turns them into Markdown the workspace can read and search:
 
 ```bash
-pip install anthropic pypdfium2 pillow
-export ANTHROPIC_API_KEY=...        # or: ant auth login
+pip install pypdfium2 pillow
+pip install anthropic          # or: openai / google-genai
+export ANTHROPIC_API_KEY=...   # or OPENAI_API_KEY / GEMINI_API_KEY
 ```
+
+It uses whichever key you already have — only that provider's SDK needs installing.
 
 Then, in Claude Code:
 

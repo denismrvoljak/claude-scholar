@@ -151,11 +151,11 @@ Nothing forces you into one. If your programme mandates a different chapter orde
 - [Claude Code](https://code.claude.com)
 - Optional: [Playwright MCP](https://github.com/microsoft/playwright-mcp) for subscription databases — `claude mcp add playwright npx @playwright/mcp@latest`
 - Optional: free API keys from [OpenAlex](https://openalex.org) and [Semantic Scholar](https://www.semanticscholar.org/product/api)
-- Optional, for `/ingest`: `pip install anthropic pypdfium2 pillow` and an `ANTHROPIC_API_KEY`
+- Optional, for `/ingest`: `pip install pypdfium2 pillow` plus one provider SDK (`anthropic`, `openai`, or `google-genai`) and the matching API key — it uses whichever you already have
 
 ## Credits
 
-The PDF-to-Markdown approach behind `/ingest` — render each page, transcribe the image, cache per page so long runs resume — is from [a script by Kacper Kocieszewski](https://gist.github.com/kocieusz/85e3cfcf623f4cfe02a7a485c0307d3c), written to convert 75+ PDFs and roughly 6,000 pages of lecture material into an LLM-readable knowledge base. `scripts/pdf_to_markdown.py` is an independent implementation of that idea.
+The PDF-to-Markdown approach behind `/ingest` — render each page, transcribe the image, cache per page so long runs resume — is from [a script by kocieusz](https://gist.github.com/kocieusz/85e3cfcf623f4cfe02a7a485c0307d3c), written to convert 75+ PDFs and roughly 6,000 pages of lecture material into an LLM-readable knowledge base. `scripts/pdf_to_markdown.py` is an independent implementation of that idea.
 
 ## A note on academic integrity
 
