@@ -24,3 +24,6 @@ resources/**/data/
 # Build artefacts
 build/
 .thesis_build_images/
+
+# /ingest working files
+.transcribe_cache_*/

@@ -83,3 +83,20 @@ Three things, and the whole setup rests on them:
 **Numbers go into `docs/facts.md` before they go into a section.** Then the sample size is the same in the abstract, the methodology, and the results, and it stays that way through the analysis you rerun in week nine.
 
 **Commit often.** The document is plain text, so `git diff` shows exactly what changed between drafts, and `git log` is most of your AI usage declaration already written.
+
+## Optional: converting PDFs
+
+If your source material is PDFs — lecture slides, papers, scanned handouts — `/ingest` turns them into Markdown the workspace can read and search:
+
+```bash
+pip install anthropic pypdfium2 pillow
+export ANTHROPIC_API_KEY=...        # or: ant auth login
+```
+
+Then, in Claude Code:
+
+```
+/ingest ~/Downloads/course-slides/
+```
+
+It estimates the cost before spending anything, caches each page as it goes so long runs resume after an interruption, and offers a half-price batch mode for large backlogs. See [the credits](../README.md#credits) for where the approach came from.

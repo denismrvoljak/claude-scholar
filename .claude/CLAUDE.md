@@ -65,6 +65,7 @@ Full requirements, with a source for each line: `docs/requirements.md`.
 | `/facts` | Audit or update the source of truth |
 | `/status` | Progress against budget |
 | `/teach` | Learn the work to defence depth; mock examination |
+| `/ingest <path>` | Convert PDFs (slides, papers, scans) to Markdown |
 
 ## Working agreement
 
