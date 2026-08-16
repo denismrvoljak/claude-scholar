@@ -4,6 +4,8 @@
 
 The markdown in `sections/` is the source. This file governs the compiled document (usually Word or PDF) that is actually submitted.
 
+Compiling is a deliberate manual pass near the end of the project rather than a pipeline you maintain throughout — see `docs/COMPILING.md` for the reasoning and for what the running character count is and is not good for.
+
 ## Page
 
 - A4, 2.5 cm margins all round

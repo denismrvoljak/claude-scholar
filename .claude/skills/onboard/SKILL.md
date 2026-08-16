@@ -172,6 +172,8 @@ Close with a short, concrete first move. Not a menu of possibilities: the actual
 
 Mention that `.claude/rules/` is theirs to edit by hand, and that the single habit that makes this setup pay off is putting every piece of feedback into the rules or the facts file the day it arrives.
 
+Two things worth mentioning once, here, so they are not discovered late: opening the project folder in Obsidian makes months of accumulated sections and source summaries navigable, and compiling to Word is a deliberate manual pass near the end rather than something to automate (`docs/COMPILING.md`). Say plainly that the character counts `/status` reports are a planning estimate, and that the count that goes on the front page comes from the compiled document.
+
 If the work ends in an oral defence, say now that `/teach` exists for it and is worth starting before the document is finished rather than after. Make sure the exam format, duration, examiners, and any rule about notes or AI in the room are recorded in `CLAUDE.md`, since that is what `/teach` builds its mission from.
 
 Do not run a second onboarding later. If the project changes shape, edit the rules directly or ask for a targeted update.
