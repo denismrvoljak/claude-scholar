@@ -57,6 +57,7 @@ Then run `/claude-scholar:onboard` in your project directory. It scaffolds the m
 | `/status` | Progress dashboard: character counts per section against budget, resources saved, plans written. |
 | `/facts` | Audits the document against the facts file and flags every number, date, or term that drifted. |
 | `/teach` | Teaches you your own document to the depth an oral defence needs: concept inventory, lessons built on retrieval practice, and adversarial mock examination. |
+| `/ingest` | Converts PDFs — lecture slides, papers, scans — into clean Markdown with LaTeX equations and described figures. |
 
 ### Agents
 
@@ -89,6 +90,8 @@ These are generic until `/onboard` rewrites them for your project. They are mean
 **Citations are verified, not trusted.** Models invent plausible references. `/research` requires a DOI or a resolvable URL before a source is recommended, and `/verify-sources` re-checks a finished reference list against OpenAlex and Semantic Scholar and reports what it could not confirm.
 
 **Sections are files.** `paper.md` is a manifest that lists the section files in order. Chapters stay independently editable and reviewable, and character counting is per file.
+
+**Your source material has to be readable.** Course slides, papers, and scanned handouts arrive as PDFs, and the ones that matter most are the ones text extraction handles worst — a slide deck exported from PowerPoint extracts as scrambled fragments, and a scan extracts as nothing at all. `/ingest` renders each page and transcribes it with a vision model instead: equations come back as LaTeX, tables as tables, figures as descriptions of what they show. The output is greppable, diffable, citable by page, and small enough to hand to an agent whole. It caches per page, so a six-thousand-page backlog survives an interrupted run.
 
 **Submitting is not the end.** Most academic work is defended out loud, with no notes and usually no AI in the room. `/teach` treats that as the real deadline: it inventories everything an examiner could ask about, tests what you can actually produce unaided rather than what you think you know, teaches into the gaps, and then turns adversarial and examines you on your own weakest claims. A document you cannot explain without the tool is a problem worth finding in week ten rather than in the room.
 
@@ -125,6 +128,7 @@ my-thesis/
 │   └── practical/         # domain, company, or dataset references
 ├── reference_material/    # sample reports, prior drafts, supervisor feedback
 ├── teach/                 # exam preparation: inventory, lessons, question bank, records
+├── scripts/               # pdf_to_markdown.py — the /ingest converter
 ├── figures/               # self-contained HTML figures
 ├── appendices/
 ├── paper.md               # section manifest, in order
@@ -147,6 +151,11 @@ Nothing forces you into one. If your programme mandates a different chapter orde
 - [Claude Code](https://code.claude.com)
 - Optional: [Playwright MCP](https://github.com/microsoft/playwright-mcp) for subscription databases — `claude mcp add playwright npx @playwright/mcp@latest`
 - Optional: free API keys from [OpenAlex](https://openalex.org) and [Semantic Scholar](https://www.semanticscholar.org/product/api)
+- Optional, for `/ingest`: `pip install anthropic pypdfium2 pillow` and an `ANTHROPIC_API_KEY`
+
+## Credits
+
+The PDF-to-Markdown approach behind `/ingest` — render each page, transcribe the image, cache per page so long runs resume — is from [a script by Kacper Kocieszewski](https://gist.github.com/kocieusz/85e3cfcf623f4cfe02a7a485c0307d3c), written to convert 75+ PDFs and roughly 6,000 pages of lecture material into an LLM-readable knowledge base. `scripts/pdf_to_markdown.py` is an independent implementation of that idea.
 
 ## A note on academic integrity
 
