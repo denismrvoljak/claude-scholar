@@ -57,7 +57,7 @@ Then run `/claude-scholar:onboard` in your project directory. It scaffolds the m
 | `/status` | Progress dashboard: character counts per section against budget, resources saved, plans written. |
 | `/facts` | Audits the document against the facts file and flags every number, date, or term that drifted. |
 | `/teach` | Teaches you your own document to the depth an oral defence needs: concept inventory, lessons built on retrieval practice, and adversarial mock examination. |
-| `/ingest` | Converts PDFs — lecture slides, papers, scans — into clean Markdown with LaTeX equations and described figures. |
+| `/ingest` | Converts PDFs — lecture slides, papers, scans — into clean Markdown with LaTeX equations and described figures. No API key needed; runs in the session. |
 
 ### Agents
 
@@ -91,7 +91,7 @@ These are generic until `/onboard` rewrites them for your project. They are mean
 
 **Sections are files.** `paper.md` is a manifest that lists the section files in order. Chapters stay independently editable and reviewable, and character counting is per file. Open the folder in [Obsidian](https://obsidian.md) and the whole project becomes searchable and navigable, with LaTeX rendered — useful once there are eight chapters and sixty source summaries. Compiling to Word is a manual pass at the end, on purpose: see [docs/COMPILING.md](docs/COMPILING.md) for why, and for what the character count in `/status` does and does not tell you.
 
-**Your source material has to be readable.** Course slides, papers, and scanned handouts arrive as PDFs, and the ones that matter most are the ones text extraction handles worst — a slide deck exported from PowerPoint extracts as scrambled fragments, and a scan extracts as nothing at all. `/ingest` renders each page and transcribes it with a vision model instead: equations come back as LaTeX, tables as tables, figures as descriptions of what they show. The output is greppable, diffable, citable by page, and small enough to hand to an agent whole. It caches per page, so a six-thousand-page backlog survives an interrupted run.
+**Your source material has to be readable.** Course slides, papers, and scanned handouts arrive as PDFs, and the ones that matter most are the ones text extraction handles worst — a slide deck exported from PowerPoint extracts as scrambled fragments, and a scan extracts as nothing at all. `/ingest` looks at each page and transcribes it instead: equations come back as LaTeX, tables as tables, figures as descriptions of what they show. The output is greppable, diffable, citable by page, and small enough to hand to an agent whole. It needs no API key and nothing installed — the transcription happens in the session, with long documents split across subagents so the page images never fill your conversation, and an interrupted run resumes from the block it stopped on.
 
 **Submitting is not the end.** Most academic work is defended out loud, with no notes and usually no AI in the room. `/teach` treats that as the real deadline: it inventories everything an examiner could ask about, tests what you can actually produce unaided rather than what you think you know, teaches into the gaps, and then turns adversarial and examines you on your own weakest claims. A document you cannot explain without the tool is a problem worth finding in week ten rather than in the room.
 
@@ -128,11 +128,10 @@ my-thesis/
 │   └── practical/         # domain, company, or dataset references
 ├── reference_material/    # sample reports, prior drafts, supervisor feedback
 ├── teach/                 # exam preparation: inventory, lessons, question bank, records
-├── scripts/               # pdf_to_markdown.py — the /ingest converter, + its tests
 ├── figures/               # self-contained HTML figures
 ├── appendices/
 ├── paper.md               # section manifest, in order
-└── .env                   # API keys and library proxy (gitignored)
+└── .env                   # citation API keys and library proxy (gitignored)
 ```
 
 ## Profiles
@@ -152,11 +151,11 @@ Nothing forces you into one. If your programme mandates a different chapter orde
 - Recommended: [Obsidian](https://obsidian.md) for reading and searching the project — open the folder as a vault, no import step, files stay as they are
 - Optional: [Playwright MCP](https://github.com/microsoft/playwright-mcp) for subscription databases — `claude mcp add playwright npx @playwright/mcp@latest`
 - Optional: free API keys from [OpenAlex](https://openalex.org) and [Semantic Scholar](https://www.semanticscholar.org/product/api)
-- Optional, for `/ingest`: `pip install pypdfium2 pillow` plus one provider SDK (`anthropic`, `openai`, or `google-genai`) and the matching API key — it uses whichever you already have
+- Nothing at all for `/ingest` — it transcribes PDFs inside the Claude Code session, with no key and nothing installed
 
 ## Credits
 
-The PDF-to-Markdown approach behind `/ingest` — render each page, transcribe the image, cache per page so long runs resume — is from [a script by kocieusz](https://gist.github.com/kocieusz/85e3cfcf623f4cfe02a7a485c0307d3c), written to convert 75+ PDFs and roughly 6,000 pages of lecture material into an LLM-readable knowledge base. `scripts/pdf_to_markdown.py` is an independent implementation of that idea.
+The PDF-to-Markdown approach behind `/ingest` — look at each page rather than its text layer, keep the equations as LaTeX, describe the figures, work in blocks so a long run resumes — is from [a script by kocieusz](https://gist.github.com/kocieusz/85e3cfcf623f4cfe02a7a485c0307d3c), written to convert 75+ PDFs and roughly 6,000 pages of lecture material into an LLM-readable knowledge base. `/ingest` does the same thing without the script or the API key.
 
 ## A note on academic integrity
 

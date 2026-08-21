@@ -94,20 +94,12 @@ Three things, and the whole setup rests on them:
 
 ## Optional: converting PDFs
 
-If your source material is PDFs — lecture slides, papers, scanned handouts — `/ingest` turns them into Markdown the workspace can read and search:
-
-```bash
-pip install pypdfium2 pillow
-pip install anthropic          # or: openai / google-genai
-export ANTHROPIC_API_KEY=...   # or OPENAI_API_KEY / GEMINI_API_KEY
-```
-
-It uses whichever key you already have — only that provider's SDK needs installing.
-
-Then, in Claude Code:
+If your source material is PDFs — lecture slides, papers, scanned handouts — `/ingest` turns them into Markdown the workspace can read and search. There is nothing to install and no API key to get; the transcription happens in the Claude Code session, on the plan you already pay for:
 
 ```
 /ingest ~/Downloads/course-slides/
 ```
 
-It estimates the cost before spending anything, caches each page as it goes so long runs resume after an interruption, and offers a half-price batch mode for large backlogs. See [the credits](../README.md#credits) for where the approach came from.
+It counts the pages, tells you roughly what the job will cost in usage, and asks before starting anything large. Long documents are transcribed by subagents working on page blocks in parallel, so the page images never fill up your main conversation, and a run that is interrupted resumes from the block it stopped on rather than from the beginning.
+
+Equations come back as LaTeX, tables as tables, and figures as descriptions of what they show — which is the part plain text extraction cannot do at all. See [the credits](../README.md#credits) for where the approach came from.
