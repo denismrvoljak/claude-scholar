@@ -25,8 +25,8 @@ resources/**/data/
 build/
 .thesis_build_images/
 
-# /ingest working files
-.transcribe_cache_*/
+# /ingest working files — per-block transcriptions, deleted once assembled
+.ingest-parts/
 
 # Python
 __pycache__/
