@@ -1,4 +1,6 @@
-# claude-scholar
+<p align="center">
+  <img src="assets/claude-scholar-banner.png" alt="claude-scholar" width="800">
+</p>
 
 A Claude Code workspace for writing academic work: master theses, internship and project reports, literature reviews, and course papers.
 
