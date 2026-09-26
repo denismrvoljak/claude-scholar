@@ -1,5 +1,9 @@
 <p align="center">
-  <img src="assets/claude-scholar-banner.png" alt="claude-scholar" width="800">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="assets/banner-light.svg">
+    <img alt="claude-scholar" src="assets/banner-light.svg" width="800">
+  </picture>
 </p>
 
 A Claude Code workspace for writing academic work: master theses, internship and project reports, literature reviews, and course papers.
@@ -86,6 +90,8 @@ These are generic until `/onboard` rewrites them for your project. They are mean
 **One facts file.** `docs/facts.md` is the single source of truth for every number, date, sample size, and terminology decision. Sections quote it, never memory. `/write` reads it first, `/review` flags drift, `/facts` audits the whole document. This is what stops the classic failure of a thesis where the sample size is 4,312 in the methodology and "roughly 4,000" in the results, and 4,132 in the abstract.
 
 **Rules over reminders.** Supervisor feedback and self-corrections go into `.claude/rules/writing.md` as hard constraints, including a banned-phrase list with a grep block that `/write` runs on itself before reporting back. The list grows over the life of the project and never has to be re-explained.
+
+**Your institution's rules, not generic ones.** `/onboard` writes your university's actual requirements — referencing style, section structure, formatting constraints — into `.claude/rules/`, so `/write` and `/review` check every section against what your program requires, not generic academic convention.
 
 **Character budgets are structural.** Most institutions count characters including spaces, and exclude the front matter, bibliography, and appendices. `structure.md` carries a per-section budget, `/status` shows the burn-down, and `/review` flags an over-budget section while it is still cheap to fix.
 
